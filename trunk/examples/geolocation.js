@@ -118,7 +118,9 @@ var tableview = Titanium.UI.createTableView({
 });
 win.add(tableview);
 
+alert(1);
 Titanium.Geolocation.getCurrentPosition(waarbenik);
+alert(2);
 
 // state vars used by resume/pause
 var locationAdded = false;
@@ -334,6 +336,7 @@ function waarbenik(e) {
 	//
 	// GET CURRENT POSITION - THIS FIRES ONCE
 	//
+		alert('a');
 		if (!e.success || e.error)
 		{
 			//currentLocation.text = 'error: ' + JSON.stringify(e.error);
@@ -356,6 +359,7 @@ function waarbenik(e) {
 		waarbenik.text = latitude + "," + longitude;
 		Titanium.API.info('geo - current location: ' + new Date(timestamp) + ' long ' + longitude + ' lat ' + latitude + ' accuracy ' + accuracy);
 		zoek_bars(latitude, longitude);
+/*
 		Titanium.Geolocation.reverseGeocoder(latitude,longitude,function(evt) {
 			if (evt.success) {
 				var places = evt.places;
@@ -374,4 +378,5 @@ function waarbenik(e) {
 				Ti.API.info("Code translation: "+translateErrorCode(e.code));
 			}
 		});
+*/
 }
